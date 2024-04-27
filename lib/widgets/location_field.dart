@@ -29,7 +29,7 @@ class _LocationFieldState extends State<LocationField> {
   Timer? searchOnStoppedTyping;
   String query = '';
 
-  _onChangeHandler(value) {
+  _onChangeHandler(value) { 
     // Set isLoading = true in parent
     PrepareRide.of(context)?.isLoading = true;
 

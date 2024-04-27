@@ -43,8 +43,11 @@ class _SplashState extends State<Splash> {
         LatLng(_locationData.latitude!, _locationData.longitude!);
 
     // Get the current user address
-    String currentAddress =
-        (await getParsedReverseGeocoding(currentLocation))['place'];
+    // String currentAddress =
+    //     (await getParsedReverseGeocoding(currentLocation))['place'];
+    Map revGeocode = await getParsedReverseGeocoding(currentLocation);
+    String currentAddress = revGeocode['place'];
+
 
     // Store the user location in sharedPreferences
     sharedPreferences.setDouble('latitude', _locationData.latitude!);

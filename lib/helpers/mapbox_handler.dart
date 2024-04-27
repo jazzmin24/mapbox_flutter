@@ -37,15 +37,26 @@ Future<List> getParsedResponseForQuery(String value) async {
 }
 
 // ----------------------------- Mapbox Reverse Geocoding -----------------------------
-Future<Map> getParsedReverseGeocoding(LatLng latLng) async {
-  var response =
-      json.decode(await getReverseGeocodingGivenLatLngUsingMapbox(latLng));
-  Map feature = response['features'][0];
-  Map revGeocode = {
+// Future<Map> getParsedReverseGeocoding(LatLng latLng) async {
+//   var response =
+//       json.decode(await getReverseGeocodingGivenLatLngUsingMapbox(latLng));
+//   Map feature = response['features'][0];
+//   Map revGeocode = {
+//     'name': feature['text'],
+//     'address': feature['place_name'].split('${feature['text']}, ')[1],
+//     'place': feature['place_name'],
+//     'location': latLng
+//   };
+//   return revGeocode;
+// }
+Future<Map<String, dynamic>> getParsedReverseGeocoding(LatLng latLng) async {
+  var response = await getReverseGeocodingGivenLatLngUsingMapbox(latLng);
+  Map<String, dynamic> feature = response['features'][0];
+  Map<String, dynamic> revGeocode = {
     'name': feature['text'],
     'address': feature['place_name'].split('${feature['text']}, ')[1],
     'place': feature['place_name'],
-    'location': latLng
+    'location': latLng,
   };
   return revGeocode;
 }

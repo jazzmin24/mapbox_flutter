@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ Widget searchListView(
     physics: const NeverScrollableScrollPhysics(),
     itemCount: responses.length,
     itemBuilder: (BuildContext context, int index) {
+      log(responses.length.toString());
       return Column(
         children: [
           ListTile(

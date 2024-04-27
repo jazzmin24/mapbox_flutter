@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:mapbox_turn_by_turn/widgets/endpoints_card.dart';
 import 'package:mapbox_turn_by_turn/widgets/search_listview.dart';
@@ -32,6 +34,7 @@ class _PrepareRideState extends State<PrepareRide> {
   set responsesState(List responses) {
     setState(() {
       this.responses = responses;
+      //log("getting response");
       hasResponded = true;
       isEmptyResponse = responses.isEmpty;
     });
